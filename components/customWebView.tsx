@@ -44,7 +44,7 @@ const CustomWebView = (props: CustomWebViewProps) => {
       }, 2000);
     }, []);
     //#endregion
-
+//
     return (
       <View style={{ flex: 1 }}>
         <ScrollView 

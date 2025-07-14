@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   const defaultUrl = "https://unterritoriodascoprire.it/"
-
+/**/ 
   const colorScheme = useColorScheme();  
 
   let webView = useRef(null);
