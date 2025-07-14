@@ -41,10 +41,19 @@ const CustomWebView = (props: CustomWebViewProps) => {
       props.webViewRef.current?.reload();
       setTimeout(() => {
         setRefreshing(false);
-      }, 2000);
+      }, 1500);
     }, []);
     //#endregion
-//
+
+    //#region WebView functions
+    const onNavigationStateChange = (navState) => {
+      if (!navState.url.startsWith(defaultUrl)) {
+        props.webViewRef.current?.stopLoading(); 
+        Linking.openURL(navState.url)
+      }
+    }
+    //#endregion
+
     return (
       <View style={{ flex: 1 }}>
         <ScrollView 
@@ -66,13 +75,5 @@ const CustomWebView = (props: CustomWebViewProps) => {
         </View>
     )
 }
-
-//#region WebView functions
-const onNavigationStateChange = (navState) => {
-  if (!navState.url.startsWith(defaultUrl)) {
-    Linking.openURL(navState.url)
-  }
-}
-//#endregion
 
 export default CustomWebView;
