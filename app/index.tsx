@@ -13,8 +13,8 @@ SplashScreen.setOptions({
 })
 
 export default function Index() {
-  const defaultUrl = "https://unterritoriodascoprire.it/"
-/**/ 
+  const defaultUrl = "https://unterritoriodascoprire.it"
+
   const colorScheme = useColorScheme();  
 
   let webView = useRef(null);
