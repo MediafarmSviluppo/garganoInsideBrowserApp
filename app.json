@@ -4,7 +4,7 @@
     "slug": "GarganoInsideBrowserApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/icons/adaptive-icon.png",
     "scheme": "garganoinsidebrowserapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,11 +13,17 @@
       "bundleIdentifier": "com.algoritmo.garganoinsidebrowser",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
+      },
+      "icon": {
+        "dark": "./assets/images/icons/ios-dark.png",
+        "light": "./assets/images/icons/ios-light.png",
+        "tinted": "./assets/images/icons/ios-tinted.png",
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo.png",
+        "foregroundImage": "./assets/images/icons/adaptive-icon.png",
+        "monochromeImage": "./assets/images/icons/monochrome-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -33,10 +39,14 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/logo.png",
+          "image": "./assets/images/icons/splash-icon-dark.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "image": "./assets/images/icons/splash-icon-light.png",
+            "backgroundColor": "#000000"
+          }
         }
       ]
     ],

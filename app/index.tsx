@@ -1,11 +1,16 @@
 import CustomWebView from '@/components/customWebView';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import * as SplashScreen from 'expo-splash-screen';
 import React, {
   useRef
 } from 'react';
-import { StatusBar, useColorScheme, Platform, TouchableOpacity } from "react-native";
+import { Platform, StatusBar, TouchableOpacity, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
+SplashScreen.setOptions({
+  duration: 400,
+  fade: true,
+})
 
 export default function Index() {
   const defaultUrl = "https://unterritoriodascoprire.it/"
@@ -33,7 +38,7 @@ export default function Index() {
           elevation: 5, // For Android shadow
           shadowColor: "#000", // For iOS shadow
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.7,
+          shadowOpacity: 0.25,
           shadowRadius: 3.84,
             }} onPress={() => {webView.current?.goBack()}}>
               <Ionicons name="arrow-back-outline" size={30} color="white" />

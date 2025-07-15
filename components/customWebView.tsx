@@ -35,14 +35,25 @@ const CustomWebView = (props: CustomWebViewProps) => {
     //#endregion
 
     //#region Android pull to refresh
-    const [refreshing, setRefreshing] = React.useState(false);
-    const onRefresh = React.useCallback(() => {
+    const [refreshing, setRefreshing] = useState(false);
+    const onRefresh = useCallback(() => {
       setRefreshing(true);
       props.webViewRef.current?.reload();
       setTimeout(() => {
         setRefreshing(false);
       }, 1500);
     }, []);
+
+    const [refresherEnabled, setEnableRefresher] = useState(true);
+
+    const handleScroll = (event:any) => {
+      const yOffset = Number(event.nativeEvent.contentOffset.y)
+      if (yOffset === 0) {
+        setEnableRefresher(true)
+      } else {
+        setEnableRefresher(false)
+      }
+    }
     //#endregion
 
     //#region WebView functions
@@ -59,10 +70,11 @@ const CustomWebView = (props: CustomWebViewProps) => {
         <ScrollView 
           contentContainerStyle={{ flex: 1 }}
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} enabled={refresherEnabled} />
           }>
             <WebView source={{ uri: props.url }} 
                 onNavigationStateChange={onNavigationStateChange} 
+                onScroll={handleScroll}
                 pullToRefreshEnabled={true}
                 allowsBackForwardNavigationGestures={true} // per iOS
                 style={{ flex: 1 }} 
