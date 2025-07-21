@@ -2,7 +2,7 @@
   "expo": {
     "name": "Gargano Inside",
     "slug": "GarganoInsideBrowserApp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icons/adaptive-icon.png",
     "scheme": "garganoinsidebrowserapp",
