@@ -1,7 +1,7 @@
+import * as FileSystem from 'expo-file-system';
 import React, { useCallback, useEffect, useState } from 'react';
 import { BackHandler, Linking, Platform, RefreshControl, ScrollView, Share, View } from 'react-native';
 import { WebView } from 'react-native-webview';
-import * as FileSystem from 'expo-file-system';
 const { downloadAsync, documentDirectory } = FileSystem;
 
 let defaultUrl = 'https://unterritoriodascoprire.it'; // Replace with your default URL
@@ -119,6 +119,7 @@ const CustomWebView = (props: CustomWebViewProps) => {
                 allowFileAccess={true}
                 allowUniversalFileAccessFromFileURLs={true}
                 mixedContentMode={'always'}
+                injectedJavaScript='document.getElementById("download-app").remove();'
             />
         </ScrollView>
         </View>
